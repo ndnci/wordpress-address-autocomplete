@@ -68,7 +68,7 @@
                 url: ndnciWpaaAdminData.ajaxUrl,
                 type: "POST",
                 data: {
-                    action: "wpaa_test_connection",
+                    action: "ndnci_wpaa_test_connection",
                     nonce: ndnciWpaaAdminData.nonce,
                 },
                 success: function (response) {
@@ -105,7 +105,7 @@
                 url: ndnciWpaaAdminData.ajaxUrl,
                 type: "POST",
                 data: {
-                    action: "wpaa_clear_cache",
+                    action: "ndnci_wpaa_clear_cache",
                     nonce: ndnciWpaaAdminData.nonce,
                 },
                 success: function (response) {

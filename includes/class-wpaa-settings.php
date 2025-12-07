@@ -40,8 +40,8 @@ class NDNCI_WPAA_Settings {
     private function __construct() {
         add_action( 'admin_menu', array( $this, 'add_menu_page' ) );
         add_action( 'admin_init', array( $this, 'register_settings' ) );
-        add_action( 'wp_ajax_wpaa_test_connection', array( $this, 'test_connection' ) );
-        add_action( 'wp_ajax_wpaa_clear_cache', array( $this, 'clear_cache' ) );
+        add_action( 'wp_ajax_ndnci_wpaa_test_connection', array( $this, 'test_connection' ) );
+        add_action( 'wp_ajax_ndnci_wpaa_clear_cache', array( $this, 'clear_cache' ) );
     }
     
     /**
@@ -174,25 +174,25 @@ class NDNCI_WPAA_Settings {
                 ?>
             </form>
             
-            <div class="wpaa-tools">
+            <div class="ndnci-wpaa-tools">
                 <h2><?php esc_html_e( 'Tools', 'wp-address-autocomplete' ); ?></h2>
                 
                 <p>
-                    <button type="button" class="button" id="wpaa-test-connection">
+                    <button type="button" class="button" id="ndnci-wpaa-test-connection">
                         <?php esc_html_e( 'Test Provider Connection', 'wp-address-autocomplete' ); ?>
                     </button>
-                    <span class="wpaa-test-result"></span>
+                    <span class="ndnci-wpaa-test-result"></span>
                 </p>
                 
                 <p>
-                    <button type="button" class="button" id="wpaa-clear-cache">
+                    <button type="button" class="button" id="ndnci-wpaa-clear-cache">
                         <?php esc_html_e( 'Clear Cache', 'wp-address-autocomplete' ); ?>
                     </button>
-                    <span class="wpaa-cache-result"></span>
+                    <span class="ndnci-wpaa-cache-result"></span>
                 </p>
             </div>
             
-            <div class="wpaa-info">
+            <div class="ndnci-wpaa-info">
                 <h2><?php esc_html_e( 'Supported Form Plugins', 'wp-address-autocomplete' ); ?></h2>
                 <ul>
                     <li><?php esc_html_e( 'Contact Form 7', 'wp-address-autocomplete' ); ?></li>
@@ -216,7 +216,7 @@ class NDNCI_WPAA_Settings {
      */
     public function render_provider_field() {
         $value = get_option( 'ndnci_wpaa_provider', 'openstreetmap' );
-        $providers = WPAA_Provider_Factory::get_all_providers();
+        $providers = NDNCI_WPAA_Provider_Factory::get_all_providers();
         ?>
         <select name="ndnci_wpaa_provider" id="ndnci_wpaa_provider">
             <?php foreach ( $providers as $provider_id => $provider ) : ?>
@@ -296,7 +296,7 @@ class NDNCI_WPAA_Settings {
             wp_send_json_error( array( 'message' => __( 'Permission denied', 'wp-address-autocomplete' ) ) );
         }
         
-        $provider = WPAA_Provider_Factory::get_provider();
+        $provider = NDNCI_WPAA_Provider_Factory::get_provider();
         
         if ( ! $provider ) {
             wp_send_json_error( array( 'message' => __( 'Provider not found', 'wp-address-autocomplete' ) ) );
@@ -321,7 +321,7 @@ class NDNCI_WPAA_Settings {
             wp_send_json_error( array( 'message' => __( 'Permission denied', 'wp-address-autocomplete' ) ) );
         }
         
-        $count = WPAA_Cache::clear_all();
+        $count = NDNCI_WPAA_Cache::clear_all();
         
         wp_send_json_success(
             array(

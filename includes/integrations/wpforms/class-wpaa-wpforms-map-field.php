@@ -173,7 +173,7 @@ class NDNCI_WPAA_WPForms_Map_Field extends WPForms_Field {
         $height = ! empty( $field['map_height'] ) ? esc_attr( $field['map_height'] ) : '400px';
         
         printf(
-            '<div class="wpaa-map" data-fields="%s" data-mode="%s" style="height: %s;"></div>',
+            '<div class="ndnci-wpaa-map" data-fields="%s" data-mode="%s" style="height: %s;"></div>',
             $address_fields,
             $display_mode,
             $height

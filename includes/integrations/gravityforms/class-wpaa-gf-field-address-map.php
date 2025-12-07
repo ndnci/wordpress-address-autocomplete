@@ -150,7 +150,7 @@ class NDNCI_WPAA_GF_Field_Address_Map extends GF_Field {
         
         return sprintf(
             '<div class="ginput_container">
-                <div class="wpaa-map" data-fields="%s" data-mode="%s" style="height: %s;"></div>
+                <div class="ndnci-wpaa-map" data-fields="%s" data-mode="%s" style="height: %s;"></div>
             </div>',
             $address_fields,
             $display_mode,

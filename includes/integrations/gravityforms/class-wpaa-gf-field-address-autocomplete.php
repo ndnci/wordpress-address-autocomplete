@@ -103,9 +103,9 @@ class NDNCI_WPAA_GF_Field_Address_Autocomplete extends GF_Field {
         
         $input = sprintf(
             '<div class="ginput_container ginput_container_text">
-                <input name="input_%d" id="%s" type="text" value="%s" class="large wpaa-address-field%s" %s %s %s %s %s autocomplete="off" />
-                <div class="wpaa-suggestions"></div>
-                <input type="hidden" name="input_%d_place_id" class="wpaa-place-id" />
+                <input name="input_%d" id="%s" type="text" value="%s" class="large ndnci-wpaa-address-field%s" %s %s %s %s %s autocomplete="off" />
+                <div class="ndnci-wpaa-suggestions"></div>
+                <input type="hidden" name="input_%d_place_id" class="ndnci-wpaa-place-id" />
             </div>',
             $id,
             $field_id,

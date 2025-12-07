@@ -77,7 +77,7 @@ class NDNCI_WPAA_WPForms_Field extends WPForms_Field {
         $primary = $field['properties']['inputs']['primary'];
         $field_placeholder = ! empty( $field['placeholder'] ) ? esc_attr( $field['placeholder'] ) : '';
         $field_required = ! empty( $field['required'] ) ? ' required' : '';
-        $field_class = implode( ' ', array_merge( $primary['class'], array( 'wpaa-address-field' ) ) );
+        $field_class = implode( ' ', array_merge( $primary['class'], array( 'ndnci-wpaa-address-field' ) ) );
         
         printf(
             '<input type="text" %s %s autocomplete="off">',
@@ -86,11 +86,11 @@ class NDNCI_WPAA_WPForms_Field extends WPForms_Field {
         );
         
         printf(
-            '<div class="wpaa-suggestions"></div>'
+            '<div class="ndnci-wpaa-suggestions"></div>'
         );
         
         printf(
-            '<input type="hidden" name="wpforms[fields][%d][place_id]" class="wpaa-place-id" />',
+            '<input type="hidden" name="wpforms[fields][%d][place_id]" class="ndnci-wpaa-place-id" />',
             absint( $field['id'] )
         );
     }

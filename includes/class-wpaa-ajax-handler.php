@@ -38,11 +38,11 @@ class NDNCI_WPAA_Ajax_Handler {
      * Constructor
      */
     private function __construct() {
-        add_action( 'wp_ajax_wpaa_search', array( $this, 'search' ) );
-        add_action( 'wp_ajax_nopriv_wpaa_search', array( $this, 'search' ) );
+        add_action( 'wp_ajax_ndnci_wpaa_search', array( $this, 'search' ) );
+        add_action( 'wp_ajax_nopriv_ndnci_wpaa_search', array( $this, 'search' ) );
         
-        add_action( 'wp_ajax_wpaa_get_place_details', array( $this, 'get_place_details' ) );
-        add_action( 'wp_ajax_nopriv_wpaa_get_place_details', array( $this, 'get_place_details' ) );
+        add_action( 'wp_ajax_ndnci_wpaa_get_place_details', array( $this, 'get_place_details' ) );
+        add_action( 'wp_ajax_nopriv_ndnci_wpaa_get_place_details', array( $this, 'get_place_details' ) );
     }
     
     /**
@@ -67,7 +67,7 @@ class NDNCI_WPAA_Ajax_Handler {
          */
         $query = apply_filters( 'ndnci_wpaa_search_query', $query );
         
-        $provider = WPAA_Provider_Factory::get_provider();
+        $provider = NDNCI_WPAA_Provider_Factory::get_provider();
         
         if ( ! $provider ) {
             wp_send_json_error(
@@ -109,7 +109,7 @@ class NDNCI_WPAA_Ajax_Handler {
             );
         }
         
-        $provider = WPAA_Provider_Factory::get_provider();
+        $provider = NDNCI_WPAA_Provider_Factory::get_provider();
         
         if ( ! $provider ) {
             wp_send_json_error(

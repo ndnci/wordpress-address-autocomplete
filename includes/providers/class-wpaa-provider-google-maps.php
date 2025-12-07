@@ -54,7 +54,7 @@ class NDNCI_WPAA_Provider_Google_Maps extends NDNCI_WPAA_Provider_Abstract {
         
         // Check cache first
         $cache_key = 'google_search_' . md5( $query . $this->api_key );
-        $cached = WPAA_Cache::get( $cache_key );
+        $cached = NDNCI_WPAA_Cache::get( $cache_key );
         
         if ( false !== $cached ) {
             return $cached;
@@ -86,7 +86,7 @@ class NDNCI_WPAA_Provider_Google_Maps extends NDNCI_WPAA_Provider_Abstract {
         $formatted = $this->format_results( $response['predictions'] ?? array() );
         
         // Cache the results
-        WPAA_Cache::set( $cache_key, $formatted );
+        NDNCI_WPAA_Cache::set( $cache_key, $formatted );
         
         return $formatted;
     }
@@ -108,7 +108,7 @@ class NDNCI_WPAA_Provider_Google_Maps extends NDNCI_WPAA_Provider_Abstract {
         
         // Check cache first
         $cache_key = 'google_details_' . $place_id;
-        $cached = WPAA_Cache::get( $cache_key );
+        $cached = NDNCI_WPAA_Cache::get( $cache_key );
         
         if ( false !== $cached ) {
             return $cached;
@@ -145,7 +145,7 @@ class NDNCI_WPAA_Provider_Google_Maps extends NDNCI_WPAA_Provider_Abstract {
         $formatted = $this->format_place_details( $response['result'] );
         
         // Cache the results
-        WPAA_Cache::set( $cache_key, $formatted );
+        NDNCI_WPAA_Cache::set( $cache_key, $formatted );
         
         return $formatted;
     }

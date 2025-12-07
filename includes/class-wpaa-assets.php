@@ -47,7 +47,7 @@ class NDNCI_WPAA_Assets {
      */
     public function enqueue_frontend_assets() {
         // Get current provider
-        $provider = WPAA_Provider_Factory::get_provider();
+        $provider = NDNCI_WPAA_Provider_Factory::get_provider();
         
         if ( ! $provider ) {
             return;

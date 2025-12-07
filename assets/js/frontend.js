@@ -85,7 +85,7 @@
                 url: ndnciWpaaData.ajaxUrl,
                 type: "POST",
                 data: {
-                    action: "wpaa_search",
+                    action: "ndnci_wpaa_search",
                     nonce: ndnciWpaaData.nonce,
                     query: query,
                 },
@@ -176,7 +176,7 @@
                 url: ndnciWpaaData.ajaxUrl,
                 type: "POST",
                 data: {
-                    action: "wpaa_get_place_details",
+                    action: "ndnci_wpaa_get_place_details",
                     nonce: ndnciWpaaData.nonce,
                     place_id: placeId,
                 },

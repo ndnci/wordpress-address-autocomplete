@@ -42,7 +42,7 @@ class NDNCI_WPAA_Provider_OpenStreetMap extends NDNCI_WPAA_Provider_Abstract {
         
         // Check cache first
         $cache_key = 'osm_search_' . md5( $query );
-        $cached = WPAA_Cache::get( $cache_key );
+        $cached = NDNCI_WPAA_Cache::get( $cache_key );
         
         if ( false !== $cached ) {
             return $cached;
@@ -68,7 +68,7 @@ class NDNCI_WPAA_Provider_OpenStreetMap extends NDNCI_WPAA_Provider_Abstract {
         $formatted = $this->format_results( $response );
         
         // Cache the results
-        WPAA_Cache::set( $cache_key, $formatted );
+        NDNCI_WPAA_Cache::set( $cache_key, $formatted );
         
         return $formatted;
     }
@@ -86,7 +86,7 @@ class NDNCI_WPAA_Provider_OpenStreetMap extends NDNCI_WPAA_Provider_Abstract {
         
         // Check cache first
         $cache_key = 'osm_details_' . $place_id;
-        $cached = WPAA_Cache::get( $cache_key );
+        $cached = NDNCI_WPAA_Cache::get( $cache_key );
         
         if ( false !== $cached ) {
             return $cached;
@@ -130,7 +130,7 @@ class NDNCI_WPAA_Provider_OpenStreetMap extends NDNCI_WPAA_Provider_Abstract {
         $formatted = $this->format_place_details( $response[0] );
         
         // Cache the results
-        WPAA_Cache::set( $cache_key, $formatted );
+        NDNCI_WPAA_Cache::set( $cache_key, $formatted );
         
         return $formatted;
     }

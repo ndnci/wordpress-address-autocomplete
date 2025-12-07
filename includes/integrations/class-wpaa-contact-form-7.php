@@ -103,7 +103,7 @@ class NDNCI_WPAA_Contact_Form_7 extends NDNCI_WPAA_Form_Integration_Abstract {
         }
         
         $atts = array();
-        $atts['class'] = $tag->get_class_option( $class . ' wpaa-address-field' );
+        $atts['class'] = $tag->get_class_option( $class . ' ndnci-wpaa-address-field' );
         $atts['id'] = $tag->get_id_option();
         $atts['tabindex'] = $tag->get_option( 'tabindex', 'signed_int', true );
         $atts['autocomplete'] = 'off';
@@ -124,7 +124,7 @@ class NDNCI_WPAA_Contact_Form_7 extends NDNCI_WPAA_Form_Integration_Abstract {
         $atts = wpcf7_format_atts( $atts );
         
         $html = sprintf(
-            '<span class="wpcf7-form-control-wrap %1$s"><input %2$s />%3$s<div class="wpaa-suggestions"></div><input type="hidden" name="%1$s_place_id" class="wpaa-place-id" /></span>',
+            '<span class="wpcf7-form-control-wrap %1$s"><input %2$s />%3$s<div class="ndnci-wpaa-suggestions"></div><input type="hidden" name="%1$s_place_id" class="ndnci-wpaa-place-id" /></span>',
             sanitize_html_class( $tag->name ),
             $atts,
             $validation_error
