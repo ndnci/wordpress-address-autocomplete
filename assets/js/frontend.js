@@ -80,14 +80,13 @@
             var $suggestions = this.getSuggestionsContainer($field);
 
             if ($suggestions.length === 0) {
-                console.error("[WPAA] No suggestions container found!");
                 return;
             }
 
             // Position suggestions relative to field
             this.positionSuggestions($field, $suggestions);
 
-            $suggestions.html('<div class="wpaa-loading">' + ndnciWpaaData.i18n.searching + "</div>").show();
+            $suggestions.html('<div class="ndnci-wpaa-loading">' + ndnciWpaaData.i18n.searching + "</div>").show();
 
             this.searchTimeout = setTimeout(function () {
                 self.search(query, $field);
@@ -98,16 +97,36 @@
          * Position suggestions container relative to field
          */
         positionSuggestions: function ($field, $suggestions) {
-            var fieldOffset = $field.offset();
-            var fieldHeight = $field.outerHeight();
-            var fieldWidth = $field.outerWidth();
+            // Try to find the wrapper first
+            var $wrapper = $field.closest(".ndnci-wpaa-field-wrapper");
+
+            if ($wrapper.length) {
+                // If wrapper exists, append suggestions to it (it will be inside the label if wrapper is inside label)
+                if ($suggestions.parent()[0] !== $wrapper[0]) {
+                    $wrapper.append($suggestions);
+                }
+            } else {
+                // Fallback: try to find parent label
+                var $parent = $field.closest("label");
+
+                // If no label, use direct parent
+                if ($parent.length === 0) {
+                    $parent = $field.parent();
+                }
+
+                // Append to the parent (inside the label or parent div)
+                if ($suggestions.parent()[0] !== $parent[0]) {
+                    $parent.append($suggestions);
+                }
+            }
 
             $suggestions.css({
-                position: "absolute",
-                top: fieldOffset.top + fieldHeight + "px",
-                left: fieldOffset.left + "px",
-                width: fieldWidth + "px",
+                position: "relative", // Relative to flow naturally in the document
+                top: "auto",
+                left: "auto",
+                width: "100%",
                 "z-index": 9999,
+                display: "block",
             });
         },
 
@@ -214,18 +233,43 @@
             var $suggestions = this.getSuggestionsContainer($field);
 
             if (!results || results.length === 0) {
-                $suggestions.html('<div class="wpaa-no-results">' + ndnciWpaaData.i18n.noResults + "</div>");
+                $suggestions.html('<div class="ndnci-wpaa-no-results">' + ndnciWpaaData.i18n.noResults + "</div>");
                 return;
             }
 
             var html = "";
             $.each(results, function (index, result) {
+                var displayText = result.description;
+
+                // Format address if available
+                if (result.address) {
+                    var parts = [];
+                    // Address (Street)
+                    if (result.address.street) {
+                        parts.push(result.address.street);
+                    }
+                    // Postal Code
+                    if (result.address.postal_code) {
+                        parts.push(result.address.postal_code);
+                    }
+                    // City
+                    if (result.address.city) {
+                        parts.push(result.address.city);
+                    }
+
+                    if (parts.length > 0) {
+                        displayText = parts.join(", ");
+                    }
+                }
+
                 html +=
-                    '<div class="wpaa-suggestion" data-place-id="' +
+                    '<div class="ndnci-wpaa-suggestion" data-place-id="' +
                     result.place_id +
-                    '">' +
-                    '<span class="wpaa-suggestion-text">' +
+                    '" title="' +
                     result.description +
+                    '">' +
+                    '<span class="ndnci-wpaa-suggestion-text">' +
+                    displayText +
                     "</span>" +
                     "</div>";
             });
@@ -242,7 +286,7 @@
          */
         showError: function ($field, message) {
             var $suggestions = this.getSuggestionsContainer($field);
-            $suggestions.html('<div class="wpaa-error">' + message + "</div>");
+            $suggestions.html('<div class="ndnci-wpaa-error">' + message + "</div>");
         },
 
         /**
