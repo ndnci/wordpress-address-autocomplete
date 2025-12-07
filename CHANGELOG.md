@@ -13,6 +13,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 -   Fixed fatal error "cannot access protected method register_field_type()". Changed visibility of `register_field_type()` from `protected` to `public` in all form integrations (CF7, WPForms, Gravity Forms) since these methods are used as WordPress hook callbacks.
 -   Fixed JavaScript error "ndnciWpaaData is not defined". Corrected the localized script variable name from `wpaaData` to `ndnciWpaaData` to match frontend.js expectations.
 -   Fixed Contact Form 7 `address_map` shortcode not rendering. Corrected the parsing of CF7 options (fields, mode, height) and set `name-attr` to `false` for map field registration.
+-   Fixed autocomplete suggestions not displaying. Restructured HTML with wrapper element and adjusted JavaScript selectors to properly locate suggestion containers across different form builders.
+-   Fixed map not displaying. Changed map CSS class from `wpaa-map` to `ndnci-wpaa-map` to match JavaScript selectors.
+-   Fixed deprecated Contact Form 7 tag generator warning. Updated to use version 2 API with proper options parameter.
 
 ## [1.0.0] - 2025-12-07
 

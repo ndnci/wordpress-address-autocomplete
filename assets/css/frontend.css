@@ -6,6 +6,11 @@
 
 /* Address autocomplete field */
 .ndnci-wpaa-address-field {
+    width: 100%;
+}
+
+/* Wrapper for positioning */
+.ndnci-wpaa-field-wrapper {
     position: relative;
 }
 
@@ -21,6 +26,9 @@
     overflow-y: auto;
     width: 100%;
     display: none;
+    margin-top: 0;
+    left: 0;
+    top: 100%;
 }
 
 /* Individual suggestion */

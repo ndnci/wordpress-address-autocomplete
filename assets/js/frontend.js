@@ -67,12 +67,25 @@
                 return;
             }
 
-            var $suggestions = $field.siblings(".ndnci-wpaa-suggestions");
+            var $suggestions = this.getSuggestionsContainer($field);
             $suggestions.html('<div class="wpaa-loading">' + ndnciWpaaData.i18n.searching + "</div>").show();
 
             this.searchTimeout = setTimeout(function () {
                 self.search(query, $field);
             }, this.searchDelay);
+        },
+
+        /**
+         * Get suggestions container for a field
+         */
+        getSuggestionsContainer: function ($field) {
+            // Try to find in wrapper first (CF7, WPForms)
+            var $wrapper = $field.closest(".ndnci-wpaa-field-wrapper, .wpforms-field");
+            if ($wrapper.length) {
+                return $wrapper.find(".ndnci-wpaa-suggestions");
+            }
+            // Fallback to siblings
+            return $field.siblings(".ndnci-wpaa-suggestions");
         },
 
         /**
@@ -106,7 +119,7 @@
          * Display suggestions
          */
         displaySuggestions: function (results, $field) {
-            var $suggestions = $field.siblings(".ndnci-wpaa-suggestions");
+            var $suggestions = this.getSuggestionsContainer($field);
 
             if (!results || results.length === 0) {
                 $suggestions.html('<div class="wpaa-no-results">' + ndnciWpaaData.i18n.noResults + "</div>");
@@ -132,7 +145,7 @@
          * Show error
          */
         showError: function ($field, message) {
-            var $suggestions = $field.siblings(".ndnci-wpaa-suggestions");
+            var $suggestions = this.getSuggestionsContainer($field);
             $suggestions.html('<div class="wpaa-error">' + message + "</div>");
         },
 
@@ -140,7 +153,7 @@
          * Hide suggestions
          */
         hideSuggestions: function ($field) {
-            $field.siblings(".ndnci-wpaa-suggestions").hide();
+            this.getSuggestionsContainer($field).hide();
         },
 
         /**
@@ -150,12 +163,11 @@
             var self = this;
             var placeId = $suggestion.data("place-id");
             var description = $suggestion.find(".ndnci-wpaa-suggestion-text").text();
-            var $field = $suggestion
-                .closest(".wpcf7-form-control-wrap, .wpforms-field, .gfield")
-                .find(".ndnci-wpaa-address-field");
-            var $placeIdField = $suggestion
-                .closest(".wpcf7-form-control-wrap, .wpforms-field, .gfield")
-                .find(".ndnci-wpaa-place-id");
+
+            // Find the wrapper and field
+            var $wrapper = $suggestion.closest(".ndnci-wpaa-field-wrapper, .wpforms-field, .gfield");
+            var $field = $wrapper.find(".ndnci-wpaa-address-field");
+            var $placeIdField = $wrapper.find(".ndnci-wpaa-place-id");
 
             $field.val(description);
             $placeIdField.val(placeId);

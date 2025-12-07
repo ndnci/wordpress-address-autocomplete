@@ -124,7 +124,7 @@ class NDNCI_WPAA_Contact_Form_7 extends NDNCI_WPAA_Form_Integration_Abstract {
         $atts = wpcf7_format_atts( $atts );
         
         $html = sprintf(
-            '<span class="wpcf7-form-control-wrap %1$s"><input %2$s />%3$s<div class="ndnci-wpaa-suggestions"></div><input type="hidden" name="%1$s_place_id" class="ndnci-wpaa-place-id" /></span>',
+            '<span class="ndnci-wpaa-field-wrapper"><span class="wpcf7-form-control-wrap %1$s"><input %2$s />%3$s</span><div class="ndnci-wpaa-suggestions"></div><input type="hidden" name="%1$s_place_id" class="ndnci-wpaa-place-id" /></span>',
             sanitize_html_class( $tag->name ),
             $atts,
             $validation_error
@@ -176,7 +176,7 @@ class NDNCI_WPAA_Contact_Form_7 extends NDNCI_WPAA_Form_Integration_Abstract {
         }
         
         $atts = array(
-            'class' => 'wpaa-map',
+            'class' => 'ndnci-wpaa-map',
             'id' => $tag->get_id_option(),
             'data-fields' => $fields_attr,
             'data-mode' => $display_mode,
@@ -201,13 +201,15 @@ class NDNCI_WPAA_Contact_Form_7 extends NDNCI_WPAA_Form_Integration_Abstract {
         $tag_generator->add(
             'address_autocomplete',
             __( 'Address Autocomplete', 'wp-address-autocomplete' ),
-            array( $this, 'tag_generator_dialog' )
+            array( $this, 'tag_generator_dialog' ),
+            array( 'version' => '2' )
         );
         
         $tag_generator->add(
             'address_map',
             __( 'Address Map', 'wp-address-autocomplete' ),
-            array( $this, 'tag_generator_map_dialog' )
+            array( $this, 'tag_generator_map_dialog' ),
+            array( 'version' => '2' )
         );
     }
     
