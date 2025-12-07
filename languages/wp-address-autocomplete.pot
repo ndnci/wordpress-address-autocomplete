@@ -1,0 +1,272 @@
+# Copyright (C) 2025 WordPress Address Autocomplete
+# This file is distributed under the GPL v2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: WordPress Address Autocomplete 1.0.0\n"
+"Report-Msgid-Bugs-To: https://www.ndnci.com\n"
+"POT-Creation-Date: 2025-12-07 00:00:00+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: NDNCI <contact@ndnci.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: wordpress-address-autocomplete.php
+msgid "<strong>WordPress Address Autocomplete:</strong> Google Maps is selected but no API key is configured. Please add your API key in the <a href=\"%s\">settings page</a>."
+msgstr ""
+
+#: includes/class-wpaa-cache.php
+msgid "Invalid JSON response from API"
+msgstr ""
+
+#: includes/abstracts/abstract-wpaa-provider.php
+msgid "Invalid JSON response from API"
+msgstr ""
+
+#: includes/providers/class-wpaa-provider-openstreetmap.php
+msgid "OpenStreetMap"
+msgstr ""
+
+msgid "Search query cannot be empty"
+msgstr ""
+
+msgid "Place ID cannot be empty"
+msgstr ""
+
+msgid "Invalid place ID format"
+msgstr ""
+
+msgid "Place not found"
+msgstr ""
+
+msgid "Could not connect to OpenStreetMap API: %s"
+msgstr ""
+
+#: includes/providers/class-wpaa-provider-google-maps.php
+msgid "Google Maps"
+msgstr ""
+
+msgid "Google Maps API key is not configured"
+msgstr ""
+
+msgid "Google Maps API key is required"
+msgstr ""
+
+msgid "Could not connect to Google Maps API: %s"
+msgstr ""
+
+msgid "Invalid API key or API not enabled"
+msgstr ""
+
+#: includes/class-wpaa-settings.php
+msgid "Address Autocomplete Settings"
+msgstr ""
+
+msgid "Address Autocomplete"
+msgstr ""
+
+msgid "Provider Settings"
+msgstr ""
+
+msgid "Choose your preferred geocoding provider and configure API keys if needed."
+msgstr ""
+
+msgid "Map Provider"
+msgstr ""
+
+msgid "OpenStreetMap is free and does not require an API key."
+msgstr ""
+
+msgid "Google Maps API Key"
+msgstr ""
+
+msgid "Required only if using Google Maps. Get your API key from %s"
+msgstr ""
+
+msgid "Google Cloud Console"
+msgstr ""
+
+msgid "Cache Settings"
+msgstr ""
+
+msgid "Caching helps reduce API calls and improve performance."
+msgstr ""
+
+msgid "Enable Cache"
+msgstr ""
+
+msgid "Enable caching of API responses"
+msgstr ""
+
+msgid "Cache Duration"
+msgstr ""
+
+msgid "seconds"
+msgstr ""
+
+msgid "How long to cache API responses (3600 = 1 hour, 86400 = 24 hours)"
+msgstr ""
+
+msgid "Configure address autocomplete settings for your forms."
+msgstr ""
+
+msgid "Developed by:"
+msgstr ""
+
+msgid "Settings saved successfully."
+msgstr ""
+
+msgid "Save Settings"
+msgstr ""
+
+msgid "Tools"
+msgstr ""
+
+msgid "Test Provider Connection"
+msgstr ""
+
+msgid "Clear Cache"
+msgstr ""
+
+msgid "Supported Form Plugins"
+msgstr ""
+
+msgid "Contact Form 7"
+msgstr ""
+
+msgid "WPForms"
+msgstr ""
+
+msgid "Gravity Forms"
+msgstr ""
+
+msgid "Permission denied"
+msgstr ""
+
+msgid "Provider not found"
+msgstr ""
+
+msgid "Connection successful!"
+msgstr ""
+
+msgid "Cleared %d cache entry"
+msgid_plural "Cleared %d cache entries"
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/class-wpaa-ajax-handler.php
+msgid "Search query is required"
+msgstr ""
+
+msgid "Provider not available"
+msgstr ""
+
+msgid "Place ID is required"
+msgstr ""
+
+#: includes/class-wpaa-assets.php
+msgid "Searching..."
+msgstr ""
+
+msgid "No results found"
+msgstr ""
+
+msgid "An error occurred. Please try again."
+msgstr ""
+
+msgid "Select an address"
+msgstr ""
+
+msgid "Testing..."
+msgstr ""
+
+msgid "Test success"
+msgstr ""
+
+msgid "Connection failed. Please check your settings."
+msgstr ""
+
+#: includes/integrations/class-wpaa-contact-form-7.php
+msgid "Address Autocomplete"
+msgstr ""
+
+msgid "Address Map"
+msgstr ""
+
+msgid "Generate an address autocomplete field"
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
+msgid "Field type"
+msgstr ""
+
+msgid "Required field"
+msgstr ""
+
+msgid "Placeholder text"
+msgstr ""
+
+msgid "Id attribute"
+msgstr ""
+
+msgid "Class attribute"
+msgstr ""
+
+msgid "Insert Tag"
+msgstr ""
+
+msgid "Generate a map to display addresses"
+msgstr ""
+
+msgid "Address fields to display"
+msgstr ""
+
+msgid "Comma-separated field names (e.g., address-1,address-2)"
+msgstr ""
+
+msgid "Display mode"
+msgstr ""
+
+msgid "Markers"
+msgstr ""
+
+msgid "Route"
+msgstr ""
+
+msgid "Map height"
+msgstr ""
+
+#: includes/integrations/wpforms/class-wpaa-wpforms-field.php
+msgid "Address"
+msgstr ""
+
+#: includes/integrations/wpforms/class-wpaa-wpforms-map-field.php
+msgid "Address Fields to Display"
+msgstr ""
+
+msgid "Comma-separated field IDs of address autocomplete fields"
+msgstr ""
+
+msgid "Display Mode"
+msgstr ""
+
+msgid "Map Height"
+msgstr ""
+
+msgid "Map will be displayed here"
+msgstr ""
+
+#: includes/integrations/gravityforms/class-wpaa-gf-field-address-autocomplete.php
+msgid "This field is required."
+msgstr ""
+
+#: includes/integrations/gravityforms/class-wpaa-gf-field-address-map.php
+msgid "Comma-separated field IDs (e.g., 1,2,3)"
+msgstr ""
+
+msgid "E.g., 400px or 50vh"
+msgstr ""

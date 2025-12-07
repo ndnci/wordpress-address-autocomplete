@@ -1,0 +1,151 @@
+/**
+ * Frontend Styles
+ *
+ * @package WordPress_Address_Autocomplete
+ */
+
+/* Address autocomplete field */
+.ndnci-wpaa-address-field {
+    position: relative;
+}
+
+/* Suggestions container */
+.ndnci-wpaa-suggestions {
+    position: absolute;
+    z-index: 9999;
+    background: #ffffff;
+    border: 1px solid #ddd;
+    border-top: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-height: 300px;
+    overflow-y: auto;
+    width: 100%;
+    display: none;
+}
+
+/* Individual suggestion */
+.ndnci-wpaa-suggestion {
+    padding: 10px 15px;
+    cursor: pointer;
+    border-bottom: 1px solid #f0f0f0;
+    transition: background-color 0.2s ease;
+}
+
+.ndnci-wpaa-suggestion:hover {
+    background-color: #f5f5f5;
+}
+
+.ndnci-wpaa-suggestion:last-child {
+    border-bottom: none;
+}
+
+.ndnci-wpaa-suggestion-text {
+    display: block;
+    color: #333;
+    font-size: 14px;
+}
+
+/* Loading state */
+.ndnci-wpaa-loading {
+    padding: 10px 15px;
+    text-align: center;
+    color: #666;
+    font-style: italic;
+}
+
+/* No results */
+.ndnci-wpaa-no-results {
+    padding: 10px 15px;
+    text-align: center;
+    color: #999;
+}
+
+/* Error message */
+.ndnci-wpaa-error {
+    padding: 10px 15px;
+    color: #d63638;
+    background-color: #fff8f8;
+}
+
+/* Map container */
+.ndnci-wpaa-map {
+    width: 100%;
+    min-height: 300px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    margin-top: 10px;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 782px) {
+    .ndnci-wpaa-suggestions {
+        font-size: 16px;
+    }
+
+    .ndnci-wpaa-suggestion {
+        padding: 12px 15px;
+    }
+}
+
+/* Contact Form 7 specific */
+.wpcf7-form-control-wrap {
+    position: relative;
+}
+
+.wpcf7-form-control-wrap .ndnci-wpaa-suggestions {
+    margin-top: -1px;
+}
+
+/* WPForms specific */
+.wpforms-field {
+    position: relative;
+}
+
+.wpforms-field .ndnci-wpaa-suggestions {
+    margin-top: -1px;
+}
+
+/* Gravity Forms specific */
+.gfield {
+    position: relative;
+}
+
+.ginput_container .ndnci-wpaa-suggestions {
+    margin-top: -1px;
+}
+
+/* Leaflet map adjustments */
+.ndnci-wpaa-map .leaflet-container {
+    height: 100%;
+    border-radius: 3px;
+}
+
+.ndnci-wpaa-map .leaflet-popup-content-wrapper {
+    border-radius: 3px;
+}
+
+/* Google Maps adjustments */
+.ndnci-wpaa-map > div {
+    border-radius: 3px;
+}
+
+/* Accessibility improvements */
+.ndnci-wpaa-suggestion:focus {
+    outline: 2px solid #2271b1;
+    outline-offset: -2px;
+}
+
+/* Loading animation */
+@keyframes wpaa-pulse {
+    0%,
+    100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+.ndnci-wpaa-loading {
+    animation: wpaa-pulse 1.5s ease-in-out infinite;
+}

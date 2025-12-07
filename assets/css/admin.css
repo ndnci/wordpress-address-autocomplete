@@ -1,0 +1,101 @@
+/**
+ * Admin Styles
+ *
+ * @package WordPress_Address_Autocomplete
+ */
+
+/* Settings header */
+.ndnci-wpaa-settings-header {
+    background: #fff;
+    border: 1px solid #ccd0d4;
+    border-radius: 3px;
+    padding: 20px;
+    margin: 20px 0;
+}
+
+.ndnci-wpaa-settings-header p {
+    margin: 5px 0;
+}
+
+.ndnci-wpaa-settings-header a {
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* Tools section */
+.ndnci-wpaa-tools {
+    background: #fff;
+    border: 1px solid #ccd0d4;
+    border-radius: 3px;
+    padding: 20px;
+    margin: 20px 0;
+}
+
+.ndnci-wpaa-tools h2 {
+    margin-top: 0;
+}
+
+.ndnci-wpaa-tools p {
+    margin: 15px 0;
+}
+
+.ndnci-wpaa-test-result,
+.ndnci-wpaa-cache-result {
+    margin-left: 10px;
+    display: inline-block;
+}
+
+/* Info section */
+.ndnci-wpaa-info {
+    background: #fff;
+    border: 1px solid #ccd0d4;
+    border-radius: 3px;
+    padding: 20px;
+    margin: 20px 0;
+}
+
+.ndnci-wpaa-info h2 {
+    margin-top: 0;
+}
+
+.ndnci-wpaa-info ul {
+    list-style: disc;
+    padding-left: 25px;
+}
+
+.ndnci-wpaa-info ul li {
+    margin: 5px 0;
+}
+
+/* Settings fields */
+.form-table input[type="text"].regular-text {
+    width: 100%;
+    max-width: 400px;
+}
+
+.form-table input[type="number"].small-text {
+    width: 80px;
+}
+
+.form-table .description {
+    font-style: italic;
+    color: #646970;
+}
+
+/* Provider select */
+#wpaa_provider {
+    min-width: 200px;
+}
+
+/* Responsive */
+@media screen and (max-width: 782px) {
+    .ndnci-wpaa-settings-header,
+    .ndnci-wpaa-tools,
+    .ndnci-wpaa-info {
+        padding: 15px;
+    }
+
+    .form-table input[type="text"].regular-text {
+        max-width: 100%;
+    }
+}

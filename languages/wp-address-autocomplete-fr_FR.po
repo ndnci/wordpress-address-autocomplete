@@ -1,0 +1,258 @@
+# Translation française pour WordPress Address Autocomplete
+# Copyright (C) 2025 NDNCI
+# This file is distributed under the GPL v2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: WordPress Address Autocomplete 1.0.0\n"
+"Report-Msgid-Bugs-To: https://www.ndnci.com\n"
+"POT-Creation-Date: 2025-12-07 00:00:00+00:00\n"
+"PO-Revision-Date: 2025-12-07 00:00:00+00:00\n"
+"Last-Translator: NDNCI <contact@ndnci.com>\n"
+"Language-Team: French\n"
+"Language: fr_FR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+msgid "<strong>WordPress Address Autocomplete:</strong> Google Maps is selected but no API key is configured. Please add your API key in the <a href=\"%s\">settings page</a>."
+msgstr "<strong>WordPress Address Autocomplete :</strong> Google Maps est sélectionné mais aucune clé API n'est configurée. Veuillez ajouter votre clé API dans la <a href=\"%s\">page de paramètres</a>."
+
+msgid "Invalid JSON response from API"
+msgstr "Réponse JSON invalide de l'API"
+
+msgid "OpenStreetMap"
+msgstr "OpenStreetMap"
+
+msgid "Search query cannot be empty"
+msgstr "La requête de recherche ne peut pas être vide"
+
+msgid "Place ID cannot be empty"
+msgstr "L'identifiant du lieu ne peut pas être vide"
+
+msgid "Invalid place ID format"
+msgstr "Format d'identifiant de lieu invalide"
+
+msgid "Place not found"
+msgstr "Lieu non trouvé"
+
+msgid "Could not connect to OpenStreetMap API: %s"
+msgstr "Impossible de se connecter à l'API OpenStreetMap : %s"
+
+msgid "Google Maps"
+msgstr "Google Maps"
+
+msgid "Google Maps API key is not configured"
+msgstr "La clé API Google Maps n'est pas configurée"
+
+msgid "Google Maps API key is required"
+msgstr "La clé API Google Maps est requise"
+
+msgid "Could not connect to Google Maps API: %s"
+msgstr "Impossible de se connecter à l'API Google Maps : %s"
+
+msgid "Invalid API key or API not enabled"
+msgstr "Clé API invalide ou API non activée"
+
+msgid "Address Autocomplete Settings"
+msgstr "Paramètres d'autocomplétion d'adresse"
+
+msgid "Address Autocomplete"
+msgstr "Autocomplétion d'adresse"
+
+msgid "Provider Settings"
+msgstr "Paramètres du fournisseur"
+
+msgid "Choose your preferred geocoding provider and configure API keys if needed."
+msgstr "Choisissez votre fournisseur de géocodage préféré et configurez les clés API si nécessaire."
+
+msgid "Map Provider"
+msgstr "Fournisseur de carte"
+
+msgid "OpenStreetMap is free and does not require an API key."
+msgstr "OpenStreetMap est gratuit et ne nécessite pas de clé API."
+
+msgid "Google Maps API Key"
+msgstr "Clé API Google Maps"
+
+msgid "Required only if using Google Maps. Get your API key from %s"
+msgstr "Requis uniquement si vous utilisez Google Maps. Obtenez votre clé API depuis %s"
+
+msgid "Google Cloud Console"
+msgstr "Console Google Cloud"
+
+msgid "Cache Settings"
+msgstr "Paramètres du cache"
+
+msgid "Caching helps reduce API calls and improve performance."
+msgstr "La mise en cache aide à réduire les appels API et améliorer les performances."
+
+msgid "Enable Cache"
+msgstr "Activer le cache"
+
+msgid "Enable caching of API responses"
+msgstr "Activer la mise en cache des réponses API"
+
+msgid "Cache Duration"
+msgstr "Durée du cache"
+
+msgid "seconds"
+msgstr "secondes"
+
+msgid "How long to cache API responses (3600 = 1 hour, 86400 = 24 hours)"
+msgstr "Durée de mise en cache des réponses API (3600 = 1 heure, 86400 = 24 heures)"
+
+msgid "Configure address autocomplete settings for your forms."
+msgstr "Configurez les paramètres d'autocomplétion d'adresse pour vos formulaires."
+
+msgid "Developed by:"
+msgstr "Développé par :"
+
+msgid "Settings saved successfully."
+msgstr "Paramètres enregistrés avec succès."
+
+msgid "Save Settings"
+msgstr "Enregistrer les paramètres"
+
+msgid "Tools"
+msgstr "Outils"
+
+msgid "Test Provider Connection"
+msgstr "Tester la connexion au fournisseur"
+
+msgid "Clear Cache"
+msgstr "Vider le cache"
+
+msgid "Supported Form Plugins"
+msgstr "Extensions de formulaire supportées"
+
+msgid "Contact Form 7"
+msgstr "Contact Form 7"
+
+msgid "WPForms"
+msgstr "WPForms"
+
+msgid "Gravity Forms"
+msgstr "Gravity Forms"
+
+msgid "Permission denied"
+msgstr "Permission refusée"
+
+msgid "Provider not found"
+msgstr "Fournisseur non trouvé"
+
+msgid "Connection successful!"
+msgstr "Connexion réussie !"
+
+msgid "Cleared %d cache entry"
+msgid_plural "Cleared %d cache entries"
+msgstr[0] "%d entrée de cache supprimée"
+msgstr[1] "%d entrées de cache supprimées"
+
+msgid "Search query is required"
+msgstr "La requête de recherche est requise"
+
+msgid "Provider not available"
+msgstr "Fournisseur non disponible"
+
+msgid "Place ID is required"
+msgstr "L'identifiant du lieu est requis"
+
+msgid "Searching..."
+msgstr "Recherche en cours..."
+
+msgid "No results found"
+msgstr "Aucun résultat trouvé"
+
+msgid "An error occurred. Please try again."
+msgstr "Une erreur s'est produite. Veuillez réessayer."
+
+msgid "Select an address"
+msgstr "Sélectionnez une adresse"
+
+msgid "Testing..."
+msgstr "Test en cours..."
+
+msgid "Test success"
+msgstr "Test réussi"
+
+msgid "Connection failed. Please check your settings."
+msgstr "Connexion échouée. Veuillez vérifier vos paramètres."
+
+msgid "Address Autocomplete"
+msgstr "Autocomplétion d'adresse"
+
+msgid "Address Map"
+msgstr "Carte d'adresse"
+
+msgid "Generate an address autocomplete field"
+msgstr "Générer un champ d'autocomplétion d'adresse"
+
+msgid "Name"
+msgstr "Nom"
+
+msgid "Field type"
+msgstr "Type de champ"
+
+msgid "Required field"
+msgstr "Champ obligatoire"
+
+msgid "Placeholder text"
+msgstr "Texte de substitution"
+
+msgid "Id attribute"
+msgstr "Attribut Id"
+
+msgid "Class attribute"
+msgstr "Attribut Class"
+
+msgid "Insert Tag"
+msgstr "Insérer le tag"
+
+msgid "Generate a map to display addresses"
+msgstr "Générer une carte pour afficher les adresses"
+
+msgid "Address fields to display"
+msgstr "Champs d'adresse à afficher"
+
+msgid "Comma-separated field names (e.g., address-1,address-2)"
+msgstr "Noms de champs séparés par des virgules (ex: address-1,address-2)"
+
+msgid "Display mode"
+msgstr "Mode d'affichage"
+
+msgid "Markers"
+msgstr "Marqueurs"
+
+msgid "Route"
+msgstr "Itinéraire"
+
+msgid "Map height"
+msgstr "Hauteur de la carte"
+
+msgid "Address"
+msgstr "Adresse"
+
+msgid "Address Fields to Display"
+msgstr "Champs d'adresse à afficher"
+
+msgid "Comma-separated field IDs of address autocomplete fields"
+msgstr "IDs de champs d'autocomplétion d'adresse séparés par des virgules"
+
+msgid "Display Mode"
+msgstr "Mode d'affichage"
+
+msgid "Map Height"
+msgstr "Hauteur de la carte"
+
+msgid "Map will be displayed here"
+msgstr "La carte sera affichée ici"
+
+msgid "This field is required."
+msgstr "Ce champ est obligatoire."
+
+msgid "Comma-separated field IDs (e.g., 1,2,3)"
+msgstr "IDs de champs séparés par des virgules (ex: 1,2,3)"
+
+msgid "E.g., 400px or 50vh"
+msgstr "Ex: 400px ou 50vh"
