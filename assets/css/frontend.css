@@ -16,19 +16,25 @@
 
 /* Suggestions container */
 .ndnci-wpaa-suggestions {
-    position: absolute;
+    position: fixed; /* Use fixed for better positioning control via JS */
     z-index: 9999;
     background: #ffffff;
     border: 1px solid #ddd;
-    border-top: none;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     max-height: 300px;
     overflow-y: auto;
-    width: 100%;
     display: none;
-    margin-top: 0;
+}
+
+/* When inside wrapper (WPForms, Gravity Forms) - use absolute positioning */
+.ndnci-wpaa-field-wrapper .ndnci-wpaa-suggestions,
+.wpforms-field .ndnci-wpaa-suggestions,
+.gfield .ndnci-wpaa-suggestions {
+    position: absolute;
+    width: 100%;
     left: 0;
     top: 100%;
+    margin-top: 0;
 }
 
 /* Individual suggestion */
