@@ -70,6 +70,7 @@ class WordPress_Address_Autocomplete {
         require_once NDNCI_WPAA_PLUGIN_DIR . 'includes/class-wpaa-ajax-handler.php';
         require_once NDNCI_WPAA_PLUGIN_DIR . 'includes/class-wpaa-settings.php';
         require_once NDNCI_WPAA_PLUGIN_DIR . 'includes/class-wpaa-assets.php';
+        require_once NDNCI_WPAA_PLUGIN_DIR . 'includes/class-wpaa-updater.php';
         
         // Form integrations
         require_once NDNCI_WPAA_PLUGIN_DIR . 'includes/abstracts/abstract-wpaa-form-integration.php';
@@ -115,6 +116,11 @@ class WordPress_Address_Autocomplete {
         
         // Initialize AJAX handler
         NDNCI_WPAA_Ajax_Handler::get_instance();
+        
+        // Initialize updater (only in admin)
+        if ( is_admin() ) {
+            new NDNCI_WPAA_Updater();
+        }
         
         // Initialize form integrations
         NDNCI_WPAA_Contact_Form_7::get_instance();
