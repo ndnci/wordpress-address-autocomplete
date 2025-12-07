@@ -177,13 +177,23 @@ class NDNCI_WPAA_Contact_Form_7 extends NDNCI_WPAA_Form_Integration_Abstract {
                 $height = substr( $height_value, strpos( $height_value, ':' ) + 1 );
             }
         }
+
+		// Get width option (format: width:100%)
+		$width_option = $tag->get_option( 'width' );
+		$width = '100%';
+		if ( ! empty( $width_option ) && is_array( $width_option ) ) {
+			$width_value = reset( $width_option );
+			if ( strpos( $width_value, ':' ) !== false ) {
+				$width = substr( $width_value, strpos( $width_value, ':' ) + 1 );
+			}
+		}
         
         $atts = array(
             'class' => 'ndnci-wpaa-map',
             'id' => $map_id,
             'data-fields' => $fields_attr,
             'data-mode' => $display_mode,
-            'style' => 'height: ' . esc_attr( $height ),
+            'style' => 'height: ' . esc_attr( $height ) . '; width: ' . esc_attr( $width ) . ';',
         );
         
         $atts = wpcf7_format_atts( $atts );

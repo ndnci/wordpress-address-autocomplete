@@ -262,10 +262,19 @@
                     }
                 }
 
+                // Store all data in data attributes
+                var dataAttrs = 'data-place-id="' + result.place_id + '"';
+                if (result.location) {
+                    dataAttrs += ' data-lat="' + result.location.lat + '" data-lng="' + result.location.lng + '"';
+                }
+                if (result.address) {
+                    dataAttrs += ' data-address="' + encodeURIComponent(JSON.stringify(result.address)) + '"';
+                }
+
                 html +=
-                    '<div class="ndnci-wpaa-suggestion" data-place-id="' +
-                    result.place_id +
-                    '" title="' +
+                    '<div class="ndnci-wpaa-suggestion" ' +
+                    dataAttrs +
+                    ' title="' +
                     result.description +
                     '">' +
                     '<span class="ndnci-wpaa-suggestion-text">' +
@@ -344,6 +353,9 @@
             var self = this;
             var placeId = $suggestion.data("place-id");
             var description = $suggestion.find(".ndnci-wpaa-suggestion-text").text();
+            var lat = $suggestion.data("lat");
+            var lng = $suggestion.data("lng");
+            var addressData = $suggestion.data("address");
 
             // Find the wrapper and field
             var $wrapper = $suggestion.closest(".ndnci-wpaa-field-wrapper, .wpforms-field, .gfield, label, p");
@@ -383,30 +395,37 @@
 
             this.hideSuggestions($field);
 
-            // Get place details
-            this.getPlaceDetails(placeId, $field);
-        },
-        /**
-         * Get place details
-         */ getPlaceDetails: function (placeId, $field) {
-            var self = this;
+            // Build place details from data attributes (no AJAX call needed!)
+            var placeDetails = {
+                place_id: placeId,
+                description: description,
+                location: null,
+                address: null,
+            };
 
-            $.ajax({
-                url: ndnciWpaaData.ajaxUrl,
-                type: "POST",
-                data: {
-                    action: "ndnci_wpaa_get_place_details",
-                    nonce: ndnciWpaaData.nonce,
-                    place_id: placeId,
-                },
-                success: function (response) {
-                    if (response.success && response.data.details) {
-                        $field.data("place-details", response.data.details);
-                        $field.trigger("wpaa_place_selected", [response.data.details]);
-                        self.updateMaps();
-                    }
-                },
-            });
+            // Add location if available
+            if (lat !== undefined && lng !== undefined) {
+                placeDetails.location = {
+                    lat: parseFloat(lat),
+                    lng: parseFloat(lng),
+                };
+            }
+
+            // Parse address data if available
+            if (addressData) {
+                try {
+                    placeDetails.address = JSON.parse(decodeURIComponent(addressData));
+                } catch (e) {
+                    console.warn("WPAA: Could not parse address data", e);
+                }
+            }
+
+            // Store details and trigger event
+            $field.data("place-details", placeDetails);
+            $field.trigger("wpaa_place_selected", [placeDetails]);
+
+            // Update maps
+            this.updateMaps();
         },
 
         /**

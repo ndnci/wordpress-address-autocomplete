@@ -17,6 +17,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 -   Fixed map not displaying. Changed map CSS class from `wpaa-map` to `ndnci-wpaa-map` to match JavaScript selectors.
 -   Fixed deprecated Contact Form 7 tag generator warning. Updated to use version 2 API with proper options parameter.
 
+### Improved
+
+-   **Performance optimization**: Removed unnecessary AJAX call when selecting autocomplete suggestion. Address data (location, address components) is now stored directly in suggestion data attributes and retrieved instantly on selection.
+-   **Contact Form 7 map shortcode**: Fixed `width` and `height` parameters not being applied. The shortcode now correctly respects both parameters (e.g., `[address_map map-1 fields:address-1 height:500px width:600px]`).
+
+### Added
+
+-   Added comprehensive unit tests for Contact Form 7 integration to verify shortcode rendering and parameter handling.
+
 ## [1.0.0] - 2025-12-07
 
 ### Added
