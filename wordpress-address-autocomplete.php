@@ -83,7 +83,7 @@ class WordPress_Address_Autocomplete {
      */
     private function init_hooks() {
         add_action( 'plugins_loaded', array( $this, 'load_textdomain' ) );
-        add_action( 'init', array( $this, 'init' ) );
+        add_action( 'plugins_loaded', array( $this, 'init' ), 5 );
         add_action( 'admin_notices', array( $this, 'admin_notices' ) );
         add_action( 'admin_notices', array( $this, 'check_dependencies' ) );
         

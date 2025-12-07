@@ -64,7 +64,7 @@ class NDNCI_WPAA_Contact_Form_7 extends NDNCI_WPAA_Form_Integration_Abstract {
     /**
      * Register field type
      */
-    protected function register_field_type() {
+    public function register_field_type() {
         wpcf7_add_form_tag(
             array( 'address_autocomplete', 'address_autocomplete*' ),
             array( $this, 'render_field' ),

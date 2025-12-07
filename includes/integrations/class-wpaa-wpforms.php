@@ -66,7 +66,7 @@ class NDNCI_WPAA_WPForms extends NDNCI_WPAA_Form_Integration_Abstract {
     /**
      * Register field type
      */
-    protected function register_field_type() {
+    public function register_field_type() {
         require_once NDNCI_WPAA_PLUGIN_DIR . 'includes/integrations/wpforms/class-wpaa-wpforms-field.php';
         require_once NDNCI_WPAA_PLUGIN_DIR . 'includes/integrations/wpforms/class-wpaa-wpforms-map-field.php';
     }

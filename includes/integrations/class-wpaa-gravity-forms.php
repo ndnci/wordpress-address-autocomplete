@@ -61,7 +61,7 @@ class NDNCI_WPAA_Gravity_Forms extends NDNCI_WPAA_Form_Integration_Abstract {
     /**
      * Register field type
      */
-    protected function register_field_type() {
+    public function register_field_type() {
         if ( ! method_exists( 'GFForms', 'include_addon_framework' ) ) {
             return;
         }
