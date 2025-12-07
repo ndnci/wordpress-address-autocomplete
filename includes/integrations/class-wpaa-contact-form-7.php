@@ -78,7 +78,7 @@ class NDNCI_WPAA_Contact_Form_7 extends NDNCI_WPAA_Form_Integration_Abstract {
             'address_map',
             array( $this, 'render_map_field' ),
             array(
-                'name-attr' => true,
+                'name-attr' => false,
             )
         );
     }
@@ -144,17 +144,35 @@ class NDNCI_WPAA_Contact_Form_7 extends NDNCI_WPAA_Form_Integration_Abstract {
             return '';
         }
         
-        $fields = $tag->get_option( 'fields' );
-        $fields_attr = ! empty( $fields ) ? implode( ',', $fields ) : '';
-        
-        $display_mode = $tag->get_option( 'mode', '', true );
-        if ( empty( $display_mode ) ) {
-            $display_mode = 'markers';
+        // Get fields option (format: fields:field1,field2)
+        $fields_option = $tag->get_option( 'fields' );
+        $fields_attr = '';
+        if ( ! empty( $fields_option ) && is_array( $fields_option ) ) {
+            // get_option returns array like ['fields:field1,field2']
+            $fields_value = reset( $fields_option );
+            if ( strpos( $fields_value, ':' ) !== false ) {
+                $fields_attr = substr( $fields_value, strpos( $fields_value, ':' ) + 1 );
+            }
         }
         
-        $height = $tag->get_option( 'height', '', true );
-        if ( empty( $height ) ) {
-            $height = '400px';
+        // Get mode option (format: mode:markers or mode:route)
+        $mode_option = $tag->get_option( 'mode' );
+        $display_mode = 'markers';
+        if ( ! empty( $mode_option ) && is_array( $mode_option ) ) {
+            $mode_value = reset( $mode_option );
+            if ( strpos( $mode_value, ':' ) !== false ) {
+                $display_mode = substr( $mode_value, strpos( $mode_value, ':' ) + 1 );
+            }
+        }
+        
+        // Get height option (format: height:400px)
+        $height_option = $tag->get_option( 'height' );
+        $height = '400px';
+        if ( ! empty( $height_option ) && is_array( $height_option ) ) {
+            $height_value = reset( $height_option );
+            if ( strpos( $height_value, ':' ) !== false ) {
+                $height = substr( $height_value, strpos( $height_value, ':' ) + 1 );
+            }
         }
         
         $atts = array(

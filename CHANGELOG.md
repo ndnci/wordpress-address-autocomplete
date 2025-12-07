@@ -5,6 +5,15 @@ All notable changes to WordPress Address Autocomplete will be documented in this
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.1] - 2025-12-07
+
+### Fixed
+
+-   Contact Form 7 integration: Fixed shortcodes not being rendered on front-end. Changed plugin initialization from `init` hook to `plugins_loaded` (priority 5) to ensure form tags are registered before Contact Form 7 processes them.
+-   Fixed fatal error "cannot access protected method register_field_type()". Changed visibility of `register_field_type()` from `protected` to `public` in all form integrations (CF7, WPForms, Gravity Forms) since these methods are used as WordPress hook callbacks.
+-   Fixed JavaScript error "ndnciWpaaData is not defined". Corrected the localized script variable name from `wpaaData` to `ndnciWpaaData` to match frontend.js expectations.
+-   Fixed Contact Form 7 `address_map` shortcode not rendering. Corrected the parsing of CF7 options (fields, mode, height) and set `name-attr` to `false` for map field registration.
+
 ## [1.0.0] - 2025-12-07
 
 ### Added

@@ -96,7 +96,7 @@ class NDNCI_WPAA_Assets {
         // Localize script
         wp_localize_script(
             'wpaa-frontend',
-            'wpaaData',
+            'ndnciWpaaData',
             array(
                 'ajaxUrl' => admin_url( 'admin-ajax.php' ),
                 'nonce' => wp_create_nonce( 'ndnci_wpaa_nonce' ),
