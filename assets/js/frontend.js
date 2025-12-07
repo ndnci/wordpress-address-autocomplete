@@ -414,8 +414,11 @@
          */
         initMaps: function () {
             var self = this;
-
             var $maps = $(".ndnci-wpaa-map");
+
+            if ($maps.length === 0) {
+                return;
+            }
 
             $maps.each(function () {
                 var $map = $(this);
@@ -427,26 +430,33 @@
                 }
             });
         },
-
         /**
          * Initialize Leaflet map (OpenStreetMap)
-         */
-        initLeafletMap: function ($mapContainer) {
+         */ initLeafletMap: function ($mapContainer) {
             if (typeof L === "undefined") {
+                console.error("WPAA: Leaflet library not loaded.");
                 return;
             }
 
-            var mapId = $mapContainer.attr("id") || "wpaa-map-" + Math.random().toString(36).substr(2, 9);
-            $mapContainer.attr("id", mapId);
+            var mapId = $mapContainer.attr("id");
+            if (!mapId) {
+                mapId = "ndnci-wpaa-map-" + Math.random().toString(36).substr(2, 9);
+                $mapContainer.attr("id", mapId);
+            }
 
-            var map = L.map(mapId).setView([48.8566, 2.3522], 13);
+            try {
+                var map = L.map(mapId).setView([48.8566, 2.3522], 13);
 
-            L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-            }).addTo(map);
+                L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+                    attribution:
+                        '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+                }).addTo(map);
 
-            $mapContainer.data("map-instance", map);
-            $mapContainer.data("markers", []);
+                $mapContainer.data("map-instance", map);
+                $mapContainer.data("markers", []);
+            } catch (error) {
+                console.error("WPAA: Error initializing Leaflet map:", error);
+            }
         },
 
         /**
@@ -454,16 +464,21 @@
          */
         initGoogleMap: function ($mapContainer) {
             if (typeof google === "undefined" || typeof google.maps === "undefined") {
+                console.error("WPAA: Google Maps library not loaded.");
                 return;
             }
 
-            var map = new google.maps.Map($mapContainer[0], {
-                center: { lat: 48.8566, lng: 2.3522 },
-                zoom: 13,
-            });
+            try {
+                var map = new google.maps.Map($mapContainer[0], {
+                    center: { lat: 48.8566, lng: 2.3522 },
+                    zoom: 13,
+                });
 
-            $mapContainer.data("map-instance", map);
-            $mapContainer.data("markers", []);
+                $mapContainer.data("map-instance", map);
+                $mapContainer.data("markers", []);
+            } catch (error) {
+                console.error("WPAA: Error initializing Google Map:", error);
+            }
         },
 
         /**
@@ -501,6 +516,9 @@
                 fieldId = fieldId.trim();
 
                 // Try different selectors for different form plugins
+                // Contact Form 7: [name="fieldname"]
+                // Gravity Forms: [name="input_X"]
+                // WPForms: [name="wpforms[fields][X]"]
                 var $field = $(
                     '[name="input_' +
                         fieldId +

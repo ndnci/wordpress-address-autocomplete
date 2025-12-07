@@ -53,32 +53,48 @@ class NDNCI_WPAA_Assets {
             return;
         }
         
-        // Enqueue provider-specific map scripts
-        $map_script_url = $provider->get_map_script_url();
-        
-        if ( ! empty( $map_script_url ) ) {
-            wp_enqueue_script(
-                'wpaa-map-provider',
-                $map_script_url,
-                array(),
-                null,
-                true
-            );
-        }
+        $script_dependencies = array( 'jquery' );
         
         // Enqueue Leaflet for OpenStreetMap
         if ( 'openstreetmap' === $provider->get_id() ) {
             wp_enqueue_style(
-                'leaflet',
+                'ndnci-wpaa-leaflet',
                 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css',
                 array(),
                 '1.9.4'
             );
+            
+            wp_enqueue_script(
+                'ndnci-wpaa-leaflet',
+                'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js',
+                array(),
+                '1.9.4',
+                true // Load in footer
+            );
+            
+            $script_dependencies[] = 'ndnci-wpaa-leaflet';
+        }
+        
+        // Enqueue Google Maps for Google Maps provider
+        if ( 'google-maps' === $provider->get_id() ) {
+            $map_script_url = $provider->get_map_script_url();
+            
+            if ( ! empty( $map_script_url ) ) {
+                wp_enqueue_script(
+                    'ndnci-wpaa-google-maps',
+                    $map_script_url,
+                    array(),
+                    null,
+                    true // Load in footer
+                );
+                
+                $script_dependencies[] = 'ndnci-wpaa-google-maps';
+            }
         }
         
         // Main plugin CSS
         wp_enqueue_style(
-            'wpaa-frontend',
+            'ndnci-wpaa-frontend',
             NDNCI_WPAA_PLUGIN_URL . 'assets/css/frontend.css',
             array(),
             NDNCI_WPAA_VERSION
@@ -86,16 +102,16 @@ class NDNCI_WPAA_Assets {
         
         // Main plugin JS
         wp_enqueue_script(
-            'wpaa-frontend',
+            'ndnci-wpaa-frontend',
             NDNCI_WPAA_PLUGIN_URL . 'assets/js/frontend.js',
-            array( 'jquery' ),
+            $script_dependencies,
             NDNCI_WPAA_VERSION,
-            true
+            true // Load in footer
         );
         
         // Localize script
         wp_localize_script(
-            'wpaa-frontend',
+            'ndnci-wpaa-frontend',
             'ndnciWpaaData',
             array(
                 'ajaxUrl' => admin_url( 'admin-ajax.php' ),

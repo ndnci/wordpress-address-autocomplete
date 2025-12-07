@@ -140,8 +140,11 @@ class NDNCI_WPAA_Contact_Form_7 extends NDNCI_WPAA_Form_Integration_Abstract {
      * @return string Map HTML
      */
     public function render_map_field( $tag ) {
-        if ( empty( $tag->name ) ) {
-            return '';
+        // Map fields don't need a name attribute (name-attr is false)
+        // Generate a unique ID if not provided
+        $map_id = $tag->get_id_option();
+        if ( empty( $map_id ) ) {
+            $map_id = 'ndnci-wpaa-map-' . uniqid();
         }
         
         // Get fields option (format: fields:field1,field2)
@@ -177,7 +180,7 @@ class NDNCI_WPAA_Contact_Form_7 extends NDNCI_WPAA_Form_Integration_Abstract {
         
         $atts = array(
             'class' => 'ndnci-wpaa-map',
-            'id' => $tag->get_id_option(),
+            'id' => $map_id,
             'data-fields' => $fields_attr,
             'data-mode' => $display_mode,
             'style' => 'height: ' . esc_attr( $height ),
